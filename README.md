@@ -61,7 +61,7 @@ Using OpenAI's `text-embedding-3-large` model, we embedded **189 widely used cli
 </div>
 
 ---
-� Full Paper
+📝 Full Paper
 
 The complete research manuscript is available in the repository:
 
@@ -70,7 +70,6 @@ The complete research manuscript is available in the repository:
 
 ---
 
-## �
 ## 📁 Repository Structure
 
 ```
