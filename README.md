@@ -61,12 +61,13 @@ Using OpenAI's `text-embedding-3-large` model, we embedded **189 widely used cli
 </div>
 
 ---
-📝 Full Paper
+
+## 📖 Full Paper
 
 The complete research manuscript is available in the repository:
 
-- **PDF (typeset):** [src/v2/paper/main.pdf](src/v2/paper/main.pdf)
-- **LaTeX source:** [src/v2/paper/main.tex](src/v2/paper/main.tex)
+- **PDF (typeset):** [src/v2/paper/main.pdf](https://github.com/stvsever/research_paper_on_eudaimonia_in_healthcare/blob/main/src/v2/paper/main.pdf) · [Download](https://github.com/stvsever/research_paper_on_eudaimonia_in_healthcare/raw/main/src/v2/paper/main.pdf)
+- **LaTeX source:** [src/v2/paper/main.tex](https://github.com/stvsever/research_paper_on_eudaimonia_in_healthcare/blob/main/src/v2/paper/main.tex)
 
 ---
 
