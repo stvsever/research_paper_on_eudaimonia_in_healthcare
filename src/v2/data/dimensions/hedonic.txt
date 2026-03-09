@@ -1,0 +1,17 @@
+DIMENSION: Foundational claim
+The good life consists in maximising pleasure and minimising pain. Well-being is the balance of positive over negative affect, the accumulation of pleasurable experiences and the avoidance of suffering. The hedonic tradition, from Epicurus through Bentham to contemporary affect balance models, defines the good life as subjective enjoyment.
+
+DIMENSION: Evaluative criterion
+Well-being is evaluated subjectively: pleasant affect, absence of distress, and life satisfaction are the primary indicators. A person is doing well to the extent that they report feeling good, experiencing positive emotions, and being satisfied with their life circumstances.
+
+DIMENSION: Time horizon
+Well-being assessment is potentially moment-to-moment. Satisfaction assessments are often short-horizon, capturing current mood, recent emotional states, or present life satisfaction rather than long-term biographical patterns of living.
+
+DIMENSION: Adversity
+Adversity is intrinsically negative and is to be avoided or alleviated. Suffering, pain, and distress are direct subtractions from well-being. The goal is to minimise negative experiences and maximise comfort, relief, and the absence of symptoms.
+
+DIMENSION: Measurement proxies
+Measurement captures positive affect, negative affect, life satisfaction, subjective happiness, mood states, emotional valence, hedonic balance, symptom severity, distress levels, and pain intensity. Instruments assess how good a person feels, the presence of pleasant emotions, the absence of unpleasant feelings, and the reduction of distressing symptoms rather than underlying capacities or growth.
+
+DIMENSION: Central tension
+A life optimised solely for pleasant affect and the absence of pain may nonetheless feel hollow, directionless, and lacking in significance. Sustained comfort without challenge, purpose, or genuine accomplishment can produce restlessness, boredom, and a pervasive sense that something essential is missing despite high subjective satisfaction scores.

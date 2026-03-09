@@ -1,0 +1,72 @@
+[
+  {
+    "dimension": "Foundational claim",
+    "n": 189,
+    "shapiro_W": 0.9626652716371387,
+    "shapiro_p": 6.479392416340764e-05,
+    "wilcoxon_T": 16837.0,
+    "wilcoxon_p": 8.407080994639006e-26,
+    "rank_biserial_r": 0.8754664438874966,
+    "cohen_d": 1.193423976947842
+  },
+  {
+    "dimension": "Evaluative criterion",
+    "n": 189,
+    "shapiro_W": 0.9705905433963377,
+    "shapiro_p": 0.000519379236844665,
+    "wilcoxon_T": 17192.0,
+    "wilcoxon_p": 5.256816053700973e-28,
+    "rank_biserial_r": 0.9150097465886939,
+    "cohen_d": 1.3505286924779778
+  },
+  {
+    "dimension": "Time horizon",
+    "n": 189,
+    "shapiro_W": 0.9501727527205411,
+    "shapiro_p": 3.570357705576069e-06,
+    "wilcoxon_T": 17840.0,
+    "wilcoxon_p": 2.823980934210997e-32,
+    "rank_biserial_r": 0.9871901977165134,
+    "cohen_d": 2.0458794832149767
+  },
+  {
+    "dimension": "Adversity",
+    "n": 189,
+    "shapiro_W": 0.9158440398333417,
+    "shapiro_p": 6.281924454275979e-09,
+    "wilcoxon_T": 16677.0,
+    "wilcoxon_p": 7.703361208762911e-25,
+    "rank_biserial_r": 0.8576441102756893,
+    "cohen_d": 1.1877235823032493
+  },
+  {
+    "dimension": "Measurement proxies",
+    "n": 189,
+    "shapiro_W": 0.9531367833826622,
+    "shapiro_p": 6.845903003708869e-06,
+    "wilcoxon_T": 13125.0,
+    "wilcoxon_p": 1.8184904818252117e-08,
+    "rank_biserial_r": 0.4619883040935673,
+    "cohen_d": 0.36225785498494006
+  },
+  {
+    "dimension": "Central tension",
+    "n": 189,
+    "shapiro_W": 0.9255369704454011,
+    "shapiro_p": 3.131113823481638e-08,
+    "wilcoxon_T": 15136.0,
+    "wilcoxon_p": 1.441582385278158e-16,
+    "rank_biserial_r": 0.6859927596769702,
+    "cohen_d": 0.6803231136185561
+  },
+  {
+    "dimension": "Overall",
+    "n": 1134,
+    "shapiro_W": 0.9739401312765139,
+    "shapiro_p": 2.036019597346461e-13,
+    "wilcoxon_T": 582990.0,
+    "wilcoxon_p": 2.881194215159677e-124,
+    "rank_biserial_r": 0.8118080320723493,
+    "cohen_d": 0.9355435853982267
+  }
+]

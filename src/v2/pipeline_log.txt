@@ -1,0 +1,134 @@
+
+========================================================================
+STEP 1/8 — Fetching PubMed usage counts for 200+ scales (2000-2025)
+========================================================================
+Total queries: 5096  |  Already done: 5096  |  Remaining: 0
+All usage counts already fetched. Skipping.
+
+========================================================================
+STEP 2/8 — Generating embeddings (OpenAI text-embedding-3-large, parallel)
+========================================================================
+Embedding 208 texts (6 hedonic dims, 6 eudaimonic dims, 196 scales)...
+  Batch 5/5 done (8 texts)
+  Batch 4/5 done (50 texts)
+  Batch 2/5 done (50 texts)
+  Batch 1/5 done (50 texts)
+  Batch 3/5 done (50 texts)
+Saved embeddings to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/outputs/embeddings.json
+
+========================================================================
+STEP 3/8 — H1 analysis: 4 sub-analyses (top-N raw/weighted, all raw/weighted)
+========================================================================
+
+=== H1A_TOPN_RAW ===
+  Foundational claim         Δ=+0.0447  d=1.565  *** (Holm)
+  Evaluative criterion       Δ=+0.0705  d=1.720  *** (Holm)
+  Time horizon               Δ=+0.1108  d=2.275  *** (Holm)
+  Adversity                  Δ=+0.0779  d=1.410  *** (Holm)
+  Measurement proxies        Δ=+0.0518  d=0.826  *** (Holm)
+  Central tension            Δ=+0.0410  d=1.034  *** (Holm)
+  Overall: Δ=+0.0661  d=1.255  p=0.000000
+
+=== H1B_TOPN_WEIGHTED ===
+  Foundational claim         Δ=+0.0447  d=1.643  *** (Holm)
+  Evaluative criterion       Δ=+0.0705  d=1.916  *** (Holm)
+  Time horizon               Δ=+0.1108  d=2.580  *** (Holm)
+  Adversity                  Δ=+0.0779  d=1.729  *** (Holm)
+  Measurement proxies        Δ=+0.0518  d=1.053  *** (Holm)
+  Central tension            Δ=+0.0410  d=1.245  *** (Holm)
+  Overall: Δ=+0.0661  d=1.255  p=0.000000
+
+=== H1C_ALL_RAW ===
+  Foundational claim         Δ=+0.0378  d=1.205  *** (Holm)
+  Evaluative criterion       Δ=+0.0573  d=1.353  *** (Holm)
+  Time horizon               Δ=+0.1036  d=2.054  *** (Holm)
+  Adversity                  Δ=+0.0669  d=1.216  *** (Holm)
+  Measurement proxies        Δ=+0.0274  d=0.395  *** (Holm)
+  Central tension            Δ=+0.0304  d=0.707  *** (Holm)
+  Overall: Δ=+0.0539  d=0.955  p=0.000000
+
+=== H1D_ALL_WEIGHTED ===
+  Foundational claim         Δ=+0.0378  d=1.602  *** (Holm)
+  Evaluative criterion       Δ=+0.0573  d=1.850  *** (Holm)
+  Time horizon               Δ=+0.1036  d=2.583  *** (Holm)
+  Adversity                  Δ=+0.0669  d=1.700  *** (Holm)
+  Measurement proxies        Δ=+0.0274  d=0.975  *** (Holm)
+  Central tension            Δ=+0.0304  d=1.122  *** (Holm)
+  Overall: Δ=+0.0539  d=0.955  p=0.000000
+
+========================================================================
+STEP 4/8 — H2 analysis: per-dimension temporal trend
+========================================================================
+
+=== H2: TEMPORAL TRENDS ===
+  Foundational claim         slope=+0.000075/yr  R²=0.2541  **  CI=[+0.000014, +0.000130]  MK p=0.0939  DW=0.201
+  Evaluative criterion       slope=+0.000154/yr  R²=0.4598  ***  CI=[+0.000072, +0.000224]  MK p=0.0082  DW=0.252
+  Time horizon               slope=+0.000334/yr  R²=0.8434  ***  CI=[+0.000268, +0.000398]  MK p=0.0000  DW=0.316
+  Adversity                  slope=+0.000057/yr  R²=0.0657  n.s.  CI=[-0.000053, +0.000154]  MK p=0.9648  DW=0.247
+  Measurement proxies        slope=+0.000193/yr  R²=0.3561  **  CI=[+0.000059, +0.000310]  MK p=0.0856  DW=0.318
+  Central tension            slope=+0.000193/yr  R²=0.5293  ***  CI=[+0.000093, +0.000272]  MK p=0.0000  DW=0.213
+  aggregate                  slope=+0.000168/yr  R²=0.4785  ***  CI=[+0.000078, +0.000243]  MK p=0.0063  DW=0.200
+
+========================================================================
+STEP 5/8 — Post-hoc: domains, permutation, sensitivity, scatter
+========================================================================
+
+=== POST-HOC 1: DOMAIN H1 ===
+  Anxiety & Stress                            n= 23  Δ=+0.0795  d=4.402  *** (Holm-adj)
+  Eudaimonic & Flourishing                    n= 49  Δ=+0.0082  d=0.179  n.s. (Holm-adj)
+  Functional & Quality of Life                n= 30  Δ=+0.0461  d=1.600  *** (Holm-adj)
+  General Distress & Psychopathology          n= 42  Δ=+0.0734  d=2.605  *** (Holm-adj)
+  Mood & Depression                           n= 20  Δ=+0.0865  d=3.867  *** (Holm-adj)
+  Psychosis & Severe Mental Illness           n= 14  Δ=+0.0665  d=2.809  *** (Holm-adj)
+  Substance Use & Addiction                   n=  8  Δ=+0.0608  d=5.715  ** (Holm-adj)
+  Trauma & PTSD                               n= 10  Δ=+0.0719  d=4.295  ** (Holm-adj)
+
+=== POST-HOC 2: PERMUTATION TEST ===
+  Observed Δ: +0.05389
+  Permutation p (one-sided): 0.00000
+  Null distribution: mean=0.00025 sd=0.02461
+
+=== POST-HOC 3: SENSITIVITY TO N ===
+  Top- 20: Δ_raw=+0.0754  d_raw=2.269  Δ_weighted=+0.0737
+  Top- 50: Δ_raw=+0.0661  d_raw=1.682  Δ_weighted=+0.0697
+  Top-100: Δ_raw=+0.0621  d_raw=1.626  Δ_weighted=+0.0687
+  Top-150: Δ_raw=+0.0587  d_raw=1.476  Δ_weighted=+0.0682
+  Top-196: Δ_raw=+0.0539  d_raw=1.278  Δ_weighted=+0.0681
+
+=== POST-HOC 4: USAGE vs DELTA CORRELATION ===
+  Spearman rho: 0.2693  p=0.000135
+
+=== POST-HOC 5: DOMAIN H2 (temporal) ===
+  Anxiety & Stress                            slope/decade=+0.00187  total_Δ25yr=+0.00468  R²=0.9374  *** (Holm-adj)
+  Eudaimonic & Flourishing                    slope/decade=+0.00898  total_Δ25yr=+0.02246  R²=0.7681  *** (Holm-adj)
+  Functional & Quality of Life                slope/decade=+0.00156  total_Δ25yr=+0.00389  R²=0.7348  *** (Holm-adj)
+  General Distress & Psychopathology          slope/decade=-0.00593  total_Δ25yr=-0.01482  R²=0.7971  *** (Holm-adj)
+  Mood & Depression                           slope/decade=+0.00286  total_Δ25yr=+0.00715  R²=0.7312  *** (Holm-adj)
+  Psychosis & Severe Mental Illness           slope/decade=-0.00342  total_Δ25yr=-0.00854  R²=0.6736  *** (Holm-adj)
+  Substance Use & Addiction                   slope/decade=+0.00211  total_Δ25yr=+0.00526  R²=0.8339  *** (Holm-adj)
+  Trauma & PTSD                               slope/decade=+0.00097  total_Δ25yr=+0.00241  R²=0.1448  n.s. (Holm-adj)
+
+========================================================================
+STEP 6/8 — H1 visualisation (2×2 panel + effect sizes)
+========================================================================
+Saved H1 violin (all scales) to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H1 violin weighted (all scales) to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H1 violin (top-50) to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H1 violin weighted (top-50) to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H1 four-panel figure to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H1 effect-size comparison to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+
+========================================================================
+STEP 7/8 — H2 visualisation (6-line dimension plot)
+========================================================================
+Saved H2 figures to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+Saved H2 combined figure to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+
+========================================================================
+STEP 8/8 — Post-hoc visualisation (domains, permutation, sensitivity, scatter)
+========================================================================
+Saved post-hoc figures to /Users/stijnvanseveren/PythonProjects/startup_automation/documentation/eudaimonia/research_paper/v2/figures
+
+========================================================================
+PIPELINE COMPLETE
+========================================================================

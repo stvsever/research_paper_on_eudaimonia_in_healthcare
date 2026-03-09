@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: >-
+  Hedonic Bias in the Conceptualisation of Patient Progress
+  in Well-Being: Evidence for Convergence Toward Hedonic
+  Optimisation in Western Mental Healthcare
+message: >-
+  If you use this software or data in your research, please
+  cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Stijn
+    family-names: Van Severen
+    affiliation: Ghent University
+    orcid: ""
+  - given-names: Thomas
+    family-names: De Schryver
+    affiliation: Ghent University
+    orcid: ""
+repository-code: >-
+  https://github.com/stvsever/research_paper_on_eudaimonia_in_healthcare
+license: MIT
+date-released: "2026-03-09"
+keywords:
+  - eudaimonia
+  - hedonia
+  - well-being
+  - clinical psychology
+  - psychometric scales
+  - NLP embeddings
+  - mental healthcare
+  - temporal analysis
