@@ -21,6 +21,7 @@
 
 - [Abstract](#-abstract)
 - [Key Findings](#-key-findings)
+- [Full Paper](#-full-paper)
 - [Repository Structure](#-repository-structure)
 - [Setup & Installation](#-setup--installation)
 - [Usage](#-usage)
@@ -60,7 +61,16 @@ Using OpenAI's `text-embedding-3-large` model, we embedded **189 widely used cli
 </div>
 
 ---
+� Full Paper
 
+The complete research manuscript is available in the repository:
+
+- **PDF (typeset):** [src/v2/paper/main.pdf](src/v2/paper/main.pdf)
+- **LaTeX source:** [src/v2/paper/main.tex](src/v2/paper/main.tex)
+
+---
+
+## �
 ## 📁 Repository Structure
 
 ```
