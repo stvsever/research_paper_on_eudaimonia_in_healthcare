@@ -60,3 +60,10 @@ docker/tmp/
 
 # ── Misc ──────────────────────────────────────────────────────────────
 *.bak
+# ── Large data/output files ────────────────────────────────────────────
+src/v1/outputs/embeddings.json
+src/v2/outputs/embeddings.json
+src/v2/outputs/ngram_embeddings.json
+src/v2/outputs/ngram_filtered.csv
+src/v2/outputs/ngram_h1_cosine_similarities.csv
+src/v2/outputs/mh_books_word_freq.csv

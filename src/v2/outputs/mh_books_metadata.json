@@ -1,0 +1,28 @@
+{
+  "total_books_searched": 16000,
+  "books_processed": 3883,
+  "books_failed": 12117,
+  "unique_words": 9286,
+  "total_rows": 907627,
+  "year_range": "1900-2019",
+  "processed_per_decade": {
+    "1900s": 492,
+    "1910s": 490,
+    "1920s": 481,
+    "1930s": 331,
+    "1940s": 274,
+    "1950s": 266,
+    "1960s": 252,
+    "1970s": 256,
+    "1980s": 489,
+    "1990s": 293,
+    "2000s": 177,
+    "2010s": 82
+  },
+  "augmented_recent_decades": {
+    "1980s": 320,
+    "1990s": 231,
+    "2000s": 132,
+    "2010s": 70
+  }
+}

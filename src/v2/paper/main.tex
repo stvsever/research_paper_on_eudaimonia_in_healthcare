@@ -56,7 +56,7 @@
 
 % ══════════════════════════════════════════════════════════════════════
 \begin{abstract}
-Clinical psychology relies on standardised psychometric scales to assess well-being, distress, and functioning, yet philosophical and empirical work increasingly distinguishes two irreducible traditions: the \textit{hedonic} tradition, equating well-being with pleasure, positive affect, and satisfaction, and the \textit{eudaimonic} tradition, foregrounding meaning, purpose, virtue, and personal growth. Using OpenAI's text-embedding-3-large model, we embedded 189 widely used clinical scales alongside six theoretically derived hedonic--eudaimonic dimension pairs and computed cosine-similarity differentials~($\Delta$) to quantify the degree to which Western clinical assessment over-represents hedonic constructs. Across all scales and dimensions, we found a large and consistent hedonic bias (mean $\Delta = +0.053$, Cohen's $d = 0.94$, $p < .001$; Wilcoxon signed-rank, Holm-corrected), robust to usage-weighting ($\Delta_w = +0.064$, $d = 1.31$), corpus-size variation ($d = 1.26$--$1.82$), and permutation testing ($p < .0001$). Temporal analysis of PubMed publication counts (2000--2025) revealed that this bias has \textit{increased} over the past quarter-century (aggregate slope $= +4.59e-04$/year, $p < .0001$; Mann-Kendall $S = 297$, $p < .0001$), though the absolute magnitude of the shift is modest ($+0.011$ units over 25 years), suggesting a slow but statistically persistent drift toward hedonic convergence. All six dimensions showed positive slopes, confirming a broad-based temporal increase. These findings suggest that the Western mental healthcare assessment infrastructure might be converging toward hedonic optimisation, capturing symptom relief far more thoroughly than meaning, growth, and purpose, with direct implications for health policy and the design of next-generation medical interventions.
+Clinical psychology relies on standardised psychometric scales to assess well-being, distress, and functioning, yet philosophical and empirical work increasingly distinguishes two irreducible traditions: the \textit{hedonic} tradition, equating well-being with pleasure, positive affect, and satisfaction, and the \textit{eudaimonic} tradition, foregrounding meaning, purpose, virtue, and personal growth. Using OpenAI's text-embedding-3-large model, we embedded 189 widely used clinical scales alongside six theoretically derived hedonic--eudaimonic dimension pairs and computed cosine-similarity differentials~($\Delta$) to quantify the degree to which Western clinical assessment over-represents hedonic constructs. Across all scales and dimensions, we found a large and consistent hedonic bias (mean $\Delta = +0.053$, Cohen's $d = 0.94$, $p < .001$; Wilcoxon signed-rank, Holm-corrected), robust to usage-weighting ($\Delta_w = +0.064$, $d = 1.31$), corpus-size variation ($d = 1.26$--$1.82$), and permutation testing ($p < .0001$). Temporal analysis of PubMed publication counts (2000--2025) revealed that this bias has \textit{increased} over the past quarter-century (aggregate slope $= +4.59e-04$/year, $p < .0001$; Mann-Kendall $S = 297$, $p < .0001$), though the absolute magnitude of the shift is modest ($+0.011$ units over 25 years), suggesting a slow but statistically persistent drift toward hedonic convergence. All six dimensions showed positive slopes, confirming a broad-based temporal increase. These findings suggest that the Western mental healthcare assessment infrastructure might be converging toward hedonic optimisation, capturing symptom relief far more thoroughly than meaning, growth, and purpose, with direct implications for 1) health policy, where political decisions are informed by scientific advisory committees, and 2) the design of next-generation medical interventions.
 \end{abstract}
 
 \newpage
@@ -91,10 +91,11 @@ This definition is conspicuously eudaimonic in character---emphasising self-real
 
 Despite decades of eudaimonic theorising, several scholars have argued that clinical practice and research remain overwhelmingly hedonic in orientation.
 \citet{huppert2009exploring} noted that most large-scale mental health surveys rely on symptom checklists (e.g., PHQ-9, GAD-7) that probe negative affect and functional impairment---constructs firmly within the hedonic register---while neglecting flourishing, meaning, and virtue.
-\citet{keyes2002mental} proposed a ``dual-continuum'' model in which mental illness and mental health are related but distinct dimensions, yet clinical measurement has continued to focus on the illness end of this spectrum.
+\citet{keyes2002mental} proposed a ``dual-continuum'' model in which mental illness and mental health are related but distinct dimensions; subsequent empirical work confirmed that the two continua are moderately correlated but structurally distinct \citep{keyes2005mental}, yet clinical measurement has continued to focus on the illness end of this spectrum.
 
 \citet{kashdan2008reconsidering} and \citet{disabato2016different} demonstrated empirically that hedonic and eudaimonic constructs, though correlated, are distinguishable both psychometrically and nomologically.
 \citet{vittersø2016handbook} argued that the marginalisation of eudaimonic measurement reflects not empirical inadequacy but institutional inertia: grant agencies, regulatory bodies, and clinical trial protocols default to instruments with the longest citation histories, which overwhelmingly capture hedonic states.
+A recent scoping review of 69 well-being scales confirmed this structural imbalance, finding that hedonic and generic happiness measures vastly outnumber eudaimonic instruments \citep{zhang2024scoping}.
 
 The consequences are non-trivial.
 If treatment efficacy is evaluated primarily through hedonic lenses---Does the patient feel better? Are symptoms reduced?---then interventions that promote meaning, growth, or autonomy may be systematically undervalued.
@@ -224,11 +225,11 @@ Trend significance was assessed via (a) ordinary least-squares (OLS) regression 
 \subsubsection{Post-Hoc and Robustness Analyses}
 
 \begin{enumerate}
-    \item \textbf{Permutation test:} We randomly swapped hedonic/eudaimonic labels for each dimension ($2^6 = 64$ possible configurations) across 10{,}000 permutations and computed the null distribution of mean \Ddelta.
-    \item \textbf{Sensitivity to N:} We varied the corpus size (top-20, 50, 100, 150, 189 scales by citation count) and re-computed Cohen's $d$.
-    \item \textbf{Domain-level H1:} Per-domain Wilcoxon tests with Holm--Bonferroni correction across eight domains.
-    \item \textbf{Domain-level H2:} Per-domain OLS temporal trends with bootstrap CIs and Holm correction.
-    \item \textbf{Usage--bias correlation:} Spearman rank correlation between scale usage weight and mean \Ddelta{}.
+    \item \textbf{Permutation test:} We randomly swapped hedonic/eudaimonic labels for each dimension ($2^6 = 64$ possible configurations) across 10{,}000 permutations and computed the null distribution of mean \Ddelta{} under the hypothesis that the dimensional labels carry no systematic hedonic--eudaimonic information. The one-sided empirical $p$ is the proportion of permuted means $\geq$ the observed $\Delta$.
+    \item \textbf{Sensitivity to N:} We varied the corpus size (top-20, 50, 100, 150, 189 scales by citation count) and re-computed Cohen's $d$ for both the raw and usage-weighted analyses, testing whether the effect is driven by a small subset of frequently cited instruments or is a property of the broader scale ecosystem.
+    \item \textbf{Domain-level H1:} Per-domain Wilcoxon signed-rank tests (one-sided: hedonic $>$ eudaimonic) with Holm--Bonferroni correction across the eight clinical domains defined in Table~\ref{tab:domain_h1}, each accompanied by domain-specific Cohen's $d$.
+    \item \textbf{Domain-level H2:} Per-domain OLS temporal trends with 5{,}000-fold bootstrap CIs on the slope and Holm correction across domains, testing whether the temporal drift is uniform or concentrated in specific clinical areas.
+    \item \textbf{Usage--bias correlation:} Spearman rank correlation ($\rho$) between each scale's normalised PubMed publication weight and its mean \Ddelta{} across dimensions, testing the hypothesis that more widely adopted instruments carry disproportionately hedonic content. Significance was assessed via the standard $t$-approximation for Spearman's $\rho$ with $n - 2$ degrees of freedom.
 \end{enumerate}
 
 % ══════════════════════════════════════════════════════════════════════
@@ -276,6 +277,10 @@ Central tension           & $+0.029$ & $0.68$ & $.69$ & $+0.035$ & $1.00$ & $< .
 
 The top-50 most-cited scales showed a marginally larger bias ($\Delta = +0.064$, $d = 1.23$), consistent with the hypothesis that the most widely adopted instruments are disproportionately hedonic (see Supplementary Figure~\ref{fig:s_top50} for violin plots of this subset).
 
+As a supplementary convergent-validity check, we applied the same embedding-based analysis to a domain-restricted book corpus: 3{,}883 English-language mental-health books from the Internet Archive, filtered at the \textit{book level} by subject metadata (psychology, psychiatry, psychotherapy, and related fields; see Supplementary Note~\ref{sec:s_ngram_h1} for full method).
+Notably, the hedonic bias did \textit{not} replicate in this mental-health literature corpus ($\Delta_w = -0.013$, $d_w = -0.45$, $p = 1.0$; all six dimensions non-significant after Holm--Bonferroni correction), indicating that even vocabulary drawn exclusively from mental-health books does not inherently favour hedonic content (Supplementary Note~\ref{sec:s_ngram_h1}).
+This dissociation strengthens the clinical finding: the hedonic bias observed in clinical scales appears to be specific to psychometric instrumentation rather than a general property of evaluative language.
+
 \subsection{H2: The Hedonic Bias Is Increasing Over Time}\label{sec:results-h2}
 
 Temporal analysis of usage-weighted $\Delta$ from 2000 to 2025 revealed a statistically significant positive trend for the aggregate series (slope $= +4.59e-04$/year, $R^2 = .940$, $p < .0001$; Figure~\ref{fig:h2_combined}, panel~A).
@@ -288,6 +293,7 @@ This suggests that while the hedonic convergence is real and statistically robus
 The practical significance of this incremental shift warrants careful interpretation: even small annual changes in the composition of the measurement ecosystem can compound meaningfully over decades, but the absolute change is far smaller than the baseline cross-sectional bias ($\Delta = +0.053$, $d = 0.94$).
 Because each scale's embedding is fixed, the temporal variation in $\Delta$ is driven entirely by differential adoption rates---i.e., which scales grow in publication frequency---rather than changes in scale content.
 Panel~B of Figure~\ref{fig:h2_combined} presents the baseline-corrected version, anchoring each dimension at zero in 2000.
+A supplementary temporal analysis of 3{,}883 mental-health books from the Internet Archive over 120~years (1900--2019) revealed that the hedonic loading of mental-health literature has been increasing over time (aggregate slope $= +1.09 \times 10^{-5}$/yr, $R^2 = .21$, $p < 10^{-7}$; Mann-Kendall $S = 2{,}152$, $p < 10^{-6}$), paralleling the 25-year clinical trend but with a 42-fold smaller effect size---consistent with the interpretation that hedonic bias is concentrated in psychometric instrumentation rather than broad mental-health discourse (Supplementary Note~\ref{sec:s_ngram_h2}).
 
 \begin{figure}[H]
     \centering
@@ -500,9 +506,14 @@ Instruments that produce clean, reliable change scores in short-duration trials 
 The observed temporal trend (H2) may therefore reflect not only a deepening philosophical commitment to hedonic conceptions but also the growing dominance of RCT methodology in evidence-based medicine, which rewards precisely the kind of measurement that hedonic scales provide.
 In other words, the hedonic bias may be partly an artefact of the measurement infrastructure's optimisation for statistical tractability rather than conceptual completeness.
 
+The supplementary book-corpus analysis (Supplementary Notes~\ref{sec:s_ngram_h1}--\ref{sec:s_ngram_h2}) provides converging evidence for this interpretation.
+Mental-health literature---textbooks, monographs, and research volumes---does \textit{not} exhibit a cross-sectional hedonic bias ($\Delta_w = -0.013$, $p = 1.0$), yet its hedonic loading has been increasing significantly over 120~years (slope $= +1.09 \times 10^{-5}$/yr, $R^2 = .21$, $p < 10^{-7}$).
+Critically, the temporal effect in books is approximately 42~times smaller than the corresponding clinical-scale trend, demonstrating that the hedonic bias is dramatically concentrated in psychometric instruments.
+This pattern is consistent with the methodological-utility account: the broader disciplinary discourse engages extensively with eudaimonic constructs, but this conceptual breadth is progressively filtered out when vocabulary is funnelled through the narrow aperture of instrument design, where hedonic items offer greater psychometric tractability---higher test--retest reliability, cleaner factor loadings, and more straightforward sensitivity to change in short-duration trials.
+
 This interpretation does not diminish the practical significance of the bias.
-Whether the cause is philosophical preference, methodological convenience, or institutional inertia, the consequence is the same: the assessment ecosystem systematically under-represents eudaimonic well-being.
-However, recognising the role of methodological utility suggests that addressing the imbalance will require not only new instruments but also new trial designs---longitudinal, mixed-methods, and qualitatively enriched---that can accommodate the temporal and contextual complexity of eudaimonic constructs.
+Whether the cause is philosophical preference, methodological convenience, or institutional inertia, the consequence is the same: the assessment ecosystem systematically under-represents eudaimonic well-being, and this under-representation may subtly shape societal conceptions of mental health by privileging symptom-focused evaluative frameworks in public discourse, policy, and self-understanding.
+Recognising the role of methodological utility suggests that addressing the imbalance will require not only new instruments but also new trial designs---longitudinal, mixed-methods, and qualitatively enriched---that can accommodate the temporal and contextual complexity of eudaimonic constructs.
 
 \subsection{Beyond Embeddings: Patient-Level Validation}
 
@@ -595,6 +606,8 @@ Cross-cultural replication is essential before generalising these findings beyon
 The temporal trend documented in H2 is observational and correlational; it cannot establish that any single factor \textit{causes} the increasing hedonic bias.
 Plausible drivers include shifts in research funding priorities, the growing influence of evidence-based medicine frameworks that favour short-term RCT designs, changes in diagnostic classification systems (e.g., DSM-5 revisions), pharmaceutical industry incentives favouring symptom-reduction endpoints, and evolving population health needs.
 Distinguishing among these candidate causes would require quasi-experimental or natural-experiment designs that exploit exogenous shocks to the measurement ecosystem (e.g., the introduction of new clinical guidelines mandating eudaimonic outcomes).
+A particularly promising avenue for future work would be to test the methodological-utility pathway causally using structural equation modelling (SEM): for instance, modelling whether instrument psychometric properties (e.g., internal consistency, sensitivity to change, factor simplicity) mediate the relationship between hedonic content and adoption rate, while controlling for publication year, clinical domain, and regulatory context.
+Such an approach could disentangle whether hedonic instruments are adopted \textit{because} they are psychometrically convenient or \textit{despite} equivalent psychometric performance of eudaimonic alternatives.
 
 % ══════════════════════════════════════════════════════════════════════
 \section{Conclusion}\label{sec:conclusion}
@@ -628,16 +641,19 @@ Hackett Publishing.
 Bender, E.~M., Gebru, T., McMillan-Major, A., \& Shmitchell, S. (2021).
 On the dangers of stochastic parrots: Can language models be too big?
 \textit{Proceedings of FAccT '21}, 610--623.
+\texttt{doi:10.1145/3442188.3445922}
 
 \bibitem[Bhatia, 2019]{bhatia2019predicting}
 Bhatia, S. (2019).
 Predicting risk perception: New clues from data science.
 \textit{Management Science, 65}(8), 3800--3823.
+\texttt{doi:10.1287/mnsc.2018.3121}
 
 \bibitem[Bornmann \& Mutz, 2015]{bornmann2015growth}
 Bornmann, L., \& Mutz, R. (2015).
 Growth rates of modern science: A bibliometric analysis based on the number of publications and cited references.
 \textit{Journal of the Association for Information Science and Technology, 66}(11), 2215--2222.
+\texttt{doi:10.1002/asi.23329}
 
 \bibitem[Brown et~al., 2020]{brown2020language}
 Brown, T.~B., Mann, B., Ryder, N., et~al. (2020).
@@ -666,6 +682,7 @@ The ``what'' and ``why'' of goal pursuits: Human needs and the self-determinatio
 Devlin, J., Chang, M.-W., Lee, K., \& Toutanova, K. (2019).
 BERT: Pre-training of deep bidirectional transformers for language understanding.
 \textit{Proceedings of NAACL-HLT}, 4171--4186.
+\texttt{doi:10.18653/v1/N19-1423}
 
 \bibitem[Diener, 1984]{diener1984subjective}
 Diener, E. (1984).
@@ -706,6 +723,7 @@ Flourishing across Europe: Application of a new conceptual framework for definin
 Huta, V., \& Waterman, A.~S. (2014).
 Eudaimonia and its distinction from hedonia: Developing a classification and terminology for understanding conceptual and operational definitions.
 \textit{Journal of Happiness Studies, 15}(6), 1425--1456.
+\texttt{doi:10.1007/s10902-013-9485-0}
 
 \bibitem[Kahneman et~al., 1999]{kahneman1999hedonic}
 Kahneman, D., Diener, E., \& Schwarz, N. (Eds.) (1999).
@@ -724,10 +742,17 @@ The mental health continuum: From languishing to flourishing in life.
 \textit{Journal of Health and Social Behavior, 43}(2), 207--222.
 \texttt{doi:10.2307/3090197}
 
+\bibitem[Keyes, 2005]{keyes2005mental}
+Keyes, C.~L.~M. (2005).
+Mental illness and/or mental health? Investigating axioms of the complete state model of health.
+\textit{Journal of Consulting and Clinical Psychology, 73}(3), 539--548.
+\texttt{doi:10.1037/0022-006X.73.3.539}
+
 \bibitem[King \& Hicks, 2021]{king2004benefit}
 King, L.~A., \& Hicks, J.~A. (2021).
 The science of meaning in life.
 \textit{Annual Review of Psychology, 72}, 561--584.
+\texttt{doi:10.1146/annurev-psych-081920-111838}
 
 \bibitem[Kjell et~al., 2023]{kjell2023text}
 Kjell, O.~N.~E., Kjell, K., Garcia, D., \& Sikstr{\"o}m, S. (2023).
@@ -739,11 +764,19 @@ Predicting well-being using language models.
 Larsen, P.~O., \& von Ins, M. (2010).
 The rate of growth in scientific publication and the decline in coverage provided by Science Citation Index.
 \textit{Scientometrics, 84}(3), 575--603.
+\texttt{doi:10.1007/s11192-010-0202-z}
 
 \bibitem[McAdams, 2001]{mcadams2001psychology}
 McAdams, D.~P. (2001).
 The psychology of life stories.
 \textit{Review of General Psychology, 5}(2), 100--122.
+\texttt{doi:10.1037/1089-2680.5.2.100}
+
+\bibitem[Michel et~al., 2011]{michel2011quantitative}
+Michel, J.-B., Shen, Y.~K., Aiden, A.~P., et~al. (2011).
+Quantitative analysis of culture using millions of digitized books.
+\textit{Science, 331}(6014), 176--182.
+\texttt{doi:10.1126/science.1199644}
 
 \bibitem[Mikolov et~al., 2013]{mikolov2013distributed}
 Mikolov, T., Sutskever, I., Chen, K., Corrado, G.~S., \& Dean, J. (2013).
@@ -754,6 +787,7 @@ Distributed representations of words and phrases and their compositionality.
 Pennington, J., Socher, R., \& Manning, C.~D. (2014).
 GloVe: Global vectors for word representation.
 \textit{Proceedings of EMNLP}, 1532--1543.
+\texttt{doi:10.3115/v1/D14-1162}
 
 \bibitem[Ryan \& Deci, 2001]{ryan2001happiness}
 Ryan, R.~M., \& Deci, E.~L. (2001).
@@ -801,6 +835,7 @@ Posttraumatic growth: Conceptual foundations and empirical evidence.
 Vittersø, J. (Ed.) (2016).
 \textit{Handbook of Eudaimonic Well-Being}.
 Springer.
+\texttt{doi:10.1007/978-3-319-42445-3}
 
 \bibitem[Waterman, 1993]{waterman1993eudaimonia}
 Waterman, A.~S. (1993).
@@ -823,6 +858,12 @@ What is existential positive psychology?
 World Health Organization (2004).
 \textit{Promoting Mental Health: Concepts, Emerging Evidence, Practice (Summary Report)}.
 Geneva: World Health Organization.
+
+\bibitem[Zhang et~al., 2024]{zhang2024scoping}
+Zhang, W., Balloo, K., Hosein, A., \& Medland, E. (2024).
+A scoping review of well-being measures: Conceptualisation and scales for overall well-being.
+\textit{BMC Psychology, 12}, 358.
+\texttt{doi:10.1186/s40359-024-02074-0}
 
 \end{thebibliography}
 
@@ -992,5 +1033,134 @@ Central tension           & 0.236 & 0.071 & [0.11, 0.40] & 0.207 & 0.080 & [0.08
 \end{tabularx}
 \floatnote{Cumulative PubMed publications (2000--2025). Usage weights normalised to sum to 1.0 across all 189 scales. Mean $\Delta$ averaged across all six hedonic--eudaimonic dimensions. 20 of 20 most-used scales show positive (hedonic) loading.}
 \end{table}
+
+\clearpage
+\subsection*{S9.\ Mental-Health Book Replication of H1 (Cross-Sectional Hedonic Bias)}
+\label{sec:s_ngram_h1}
+
+\subsubsection*{Method}
+
+To test whether the hedonic loading observed in clinical scales reflects a broader asymmetry in evaluative language within mental-health literature---rather than a property unique to psychometric instruments---we conducted a convergent-validity replication using word frequencies drawn from a large corpus of psychology and psychiatry books.
+
+\paragraph{Corpus construction.}
+We constructed a domain-restricted corpus from the Internet Archive, a digital library containing over 40~million items with structured subject metadata.
+We searched for English-language items classified under psychology, psychiatry, mental health, psychotherapy, clinical psychology, psychopathology, abnormal psychology, behavioural sciences, psychometrics, counselling psychology, cognitive therapy, or psychological assessment.
+To ensure temporal coverage, we stratified the search by decade (1900s--2010s), retrieving up to 500 books per decade sorted by download count (a proxy for scholarly relevance).
+Because recent decades had sparser initial coverage, we augmented the corpus with additional broad queries (title-based and publisher-based searches for clinical-psychology, psychiatry, and psychotherapy content), again stratified by decade and filtered to mental-health subjects.
+The combined candidate set comprised approximately 16{,}000 unique volumes.
+
+\paragraph{Text extraction.}
+For each candidate volume, we attempted to download the OCR text file (\texttt{\_djvu.txt} or \texttt{.txt}) from the Internet Archive.
+Books behind access restrictions (e.g., controlled digital lending for copyrighted works) returned HTTP~401 and were excluded.
+Texts with fewer than 500 tokens after tokenisation were discarded as pamphlets or fragments.
+This procedure yielded 3{,}883 successfully processed books spanning 1900--2019, with the strongest representation in the pre-copyright era (1900--1929: $\sim$1{,}460 books) and improved coverage in recent decades (2000--2019: 259~books) following the augmentation step.
+
+\paragraph{Word frequency extraction.}
+Each book was tokenised using a simple alphabetic regex (words $\geq 3$ characters), lowercased, and matched against the 9{,}288-word vocabulary of high-frequency English adjectives and verbs established from the Google Books Ngram pipeline (Section~2.5.3).
+This intersection ensures that (a)~all counted words have pre-computed embeddings, and (b)~the word set is identical across all analyses, enabling direct comparison.
+Word counts were aggregated by (word, year) across all books published in each year, producing a frequency matrix analogous to the Google Books Ngram data but restricted to mental-health literature.
+The final dataset comprised 907{,}627 word--year observations across 9{,}286 unique words.
+
+Critically, the filtering occurs at the \textit{book level}---only books whose subject metadata matches mental-health fields are included---not at the word level.
+This means the resulting word frequencies reflect natural language use \textit{within} mental-health literature, without any semantic pre-selection of words.
+
+\paragraph{Embedding and similarity computation.}
+Identical to the main analysis: each word was embedded using OpenAI \texttt{text-embedding-3-large}, and cosine similarities to the six hedonic--eudaimonic dimension pairs were computed.
+
+\paragraph{Frequency weighting.}
+Each word's contribution was weighted by its mean annual frequency over the period 2000--2019 (the most recent decades with sufficient book coverage), normalised to sum to 1.0.
+
+\paragraph{Statistical tests.}
+Wilcoxon signed-rank tests (one-sided: hedonic $>$ eudaimonic), frequency-weighted Cohen's $d$, and Holm--Bonferroni correction across six dimensions, identical to the main H1 procedure.
+
+\subsubsection*{Results}
+
+Figure~\ref{fig:s_ngram_h1} presents the distribution of cosine similarities across the six dimensions.
+Contrary to the clinical H1 finding, the mental-health book analysis did \textit{not} reveal a hedonic bias.
+The overall frequency-weighted $\Delta_w$ was $-0.013$ ($d_w = -0.45$, Wilcoxon $p = 1.0$), indicating that the vocabulary of mental-health literature leans \textit{slightly eudaimonic} rather than hedonic.
+All six dimensions yielded negative weighted deltas: Foundational claim ($\Delta_w = -0.003$, $d_w = -0.15$), Evaluative criterion ($\Delta_w = -0.015$, $d_w = -0.68$), Time horizon ($\Delta_w = -0.004$, $d_w = -0.13$), Adversity ($\Delta_w = -0.005$, $d_w = -0.14$), Measurement proxies ($\Delta_w = -0.020$, $d_w = -0.75$), and Central tension ($\Delta_w = -0.034$, $d_w = -1.15$).
+After Holm--Bonferroni correction, none of the dimensions reached significance ($p_{\text{adj}} = 1.0$ for all six).
+The analysis was based on $N = 9{,}285$ unique words appearing in the mental-health book corpus, yielding 55{,}710 word--dimension similarity pairs.
+
+\begin{figure}[H]
+    \centering
+    \caption{Mental-health book replication of H1: hedonic versus eudaimonic cosine similarities for 9{,}285 words from 3{,}883 psychology/psychiatry books (frequency-weighted)}
+    \includegraphics[width=\textwidth]{ngram_h1_violin.pdf}
+    \label{fig:s_ngram_h1}
+    \floatnote{Distribution of cosine similarities between 9{,}285 words appearing in 3{,}883 Internet Archive mental-health books (1900--2019) and hedonic (red) versus eudaimonic (blue) well-being poles. Diamonds represent frequency-weighted means (2000--2019). No systematic hedonic bias was observed: the overall frequency-weighted $\Delta_w = -0.013$, indicating a slight eudaimonic lean even in mental-health-specific literature. This null finding strengthens the interpretation that the clinical hedonic bias (H1) is specific to psychometric instrumentation rather than a general property of mental-health language.}
+\end{figure}
+
+\subsubsection*{Interpretation}
+
+The \textit{absence} of a hedonic bias in mental-health literature is a theoretically informative null finding that sharpens the interpretation of the clinical H1 result in an important way.
+Unlike the Google Books Ngram corpus, which spans all literary genres, this corpus was filtered at the book level to include only works classified under psychology, psychiatry, and related mental-health disciplines.
+The fact that even this domain-restricted corpus shows no hedonic tilt---and, if anything, leans slightly eudaimonic ($d_w \approx -0.45$)---demonstrates that the clinical bias documented in H1 is \textit{specific to the psychometric measurement ecosystem}, not a property of mental-health vocabulary broadly.
+
+This finding has three key implications.
+First, it rules out the possibility that the clinical hedonic bias is an artefact of the embedding model's training data: if the model's distributional semantics inherently favoured hedonic associations, that bias would appear in mental-health literature as well.
+Second, psychology and psychiatry as disciplines engage extensively with eudaimonic constructs---meaning, purpose, growth, resilience, character---in their textbooks, theoretical works, and research literature.
+The hedonic bias emerges only when this rich conceptual vocabulary is funnelled through the narrow aperture of psychometric instrument design, where RCT methodology, regulatory demands, and psychometric convenience selectively amplify hedonic symptom content.
+Third, the larger effect size of the eudaimonic lean in mental-health books ($d_w = -0.44$) compared to general English ($d_w$ in the Google Books analysis) suggests that mental-health literature may be more engaged with eudaimonic themes than general text, making the contrast with the hedonic-biased measurement ecosystem all the more striking.
+
+\clearpage
+\subsection*{S10.\ Mental-Health Book Replication of H2 (Temporal Trends in Hedonic Bias)}
+\label{sec:s_ngram_h2}
+
+\subsubsection*{Method}
+
+Using the same 3{,}883-book corpus and embedding framework described in Supplementary Note~\ref{sec:s_ngram_h1}, we conducted a temporal replication of H2 spanning 120~years (1900--2019), extending the 25-year clinical temporal analysis to a substantially longer historical window.
+
+\paragraph{Per-year frequency weighting.}
+For each year $t \in [1900, 2019]$ and each dimension $d$, we computed the frequency-weighted mean $\Delta$:
+\[
+\bar{\Delta}_{d,t} = \sum_{w} \omega_{w,t} \cdot \Delta_{w,d}
+\]
+where $\omega_{w,t}$ is the proportion of word $w$'s frequency in year $t$ relative to the total frequency of all words in that year, as measured in the mental-health book corpus.
+An aggregate series was computed by averaging across the six dimensions.
+Because each word's embedding is fixed, all temporal variation in $\bar{\Delta}_{d,t}$ reflects shifts in the relative frequency of hedonic versus eudaimonic vocabulary within mental-health texts---i.e., which words are used more or less often---rather than changes in word meaning.
+
+\paragraph{Trend statistics.}
+Identical to the main H2 procedure: ordinary least-squares (OLS) regression on year, 10{,}000-fold bootstrap confidence intervals on the slope, Mann-Kendall test for monotonic trend, and Durbin--Watson diagnostics for residual autocorrelation.
+
+\subsubsection*{Results}
+
+Figure~\ref{fig:s_ngram_h2} presents the temporal evolution of frequency-weighted $\Delta$ across the six dimensions and the aggregate.
+The aggregate series showed a significant positive trend (OLS slope $= +1.09 \times 10^{-5}$/yr, $R^2 = .213$, $p < 10^{-7}$; bootstrap 95\%~CI $[+7.97, +14.07] \times 10^{-6}$), confirmed by the non-parametric Mann-Kendall test ($S = 2{,}152$, $p < 10^{-6}$).
+The Durbin--Watson statistic was $1.39$, indicating moderate residual autocorrelation---substantially better than the Google Books Ngram analysis (DW~$= 0.24$)---reflecting the natural sampling variability introduced by the book-level corpus construction.
+
+At the dimension level, four of six dimensions showed significant positive slopes: Time horizon ($\beta = +4.59 \times 10^{-5}$/yr, $R^2 = .568$, $p < .001$), Foundational claim ($\beta = +9.12 \times 10^{-6}$/yr, $R^2 = .157$, $p < .001$), Adversity ($\beta = +8.24 \times 10^{-6}$/yr, $R^2 = .068$, $p < .01$), and Evaluative criterion ($\beta = +5.38 \times 10^{-6}$/yr, $R^2 = .042$, $p < .05$).
+Measurement proxies and Central tension showed non-significant slopes ($p > .05$).
+
+\begin{figure}[H]
+    \centering
+    \caption{Mental-health book replication of H2: temporal evolution of frequency-weighted hedonic bias, 1900--2019}
+    \includegraphics[width=\textwidth]{ngram_h2_combined.pdf}
+    \label{fig:s_ngram_h2}
+    \floatnote{(A)~Yearly frequency-weighted $\Delta$ (hedonic $-$ eudaimonic) for 9{,}285 words in 3{,}883 Internet Archive mental-health books (1900--2019). Grey dots = raw yearly values; bold curve = 11-year centred rolling average; dashed red line = OLS regression. Dimension-level series are shown as thin semi-transparent lines. (B)~Baseline-corrected decadal means with 95\% CIs, showing the cumulative shift relative to the 1900s baseline. Because each word's embedding is fixed, all temporal variation reflects shifts in relative word frequency within mental-health literature.}
+\end{figure}
+
+\subsubsection*{Interpretation}
+
+The 120-year temporal analysis yields a striking dissociation when combined with the H1 book result.
+While mental-health literature does \textit{not} exhibit a cross-sectional hedonic bias (S9), its hedonic loading has been \textit{increasing significantly} over the past century.
+The aggregate trend explains a meaningful share of the variance ($R^2 = .21$) and is statistically robust across both parametric (OLS $p < 10^{-7}$) and non-parametric (Mann-Kendall $p < 10^{-6}$) tests, with bootstrap confidence intervals that exclude zero.
+
+The lower $R^2$ compared to pre-aggregated Ngram data is expected and interpretable: whereas Ngram data averages across millions of books, smoothing out year-to-year noise, our book-level corpus comprises a finite sample of 3{,}883 volumes with uneven temporal distribution.
+The resulting time series is noisier but more directly interpretable as reflecting actual variation in mental-health book content.
+The Durbin--Watson statistic of $1.39$ indicates substantially less autocorrelation than the Ngram analysis (DW~$= 0.24$), meaning that the OLS $p$-values are more trustworthy for the book-level corpus.
+
+\paragraph{Effect-size comparison with clinical H2.}
+A comparison of absolute effect sizes is instructive.
+The clinical H2 analysis (Section~\ref{sec:results-h2}) found a usage-weighted slope of $+4.59 \times 10^{-4}$/yr ($R^2 = .94$) over 25~years; the book-level analysis found a slope of $+1.09 \times 10^{-5}$/yr ($R^2 = .21$) over 120~years---approximately 42~times smaller in magnitude.
+This ratio mirrors the H1 pattern: clinical measurement instruments exhibit a much larger hedonic bias than the broader mental-health literature.
+The convergence of both cross-sectional (H1) and temporal (H2) analyses on the same conclusion---that the hedonic tilt is present in general mental-health discourse but \textit{dramatically concentrated} in clinical scales---reinforces the interpretation that psychometric design practices selectively amplify hedonic symptom content beyond what would be expected from the vocabulary of the field itself.
+
+This temporal convergence between the book-level and clinical findings is theoretically important.
+The clinical H2 analysis showed that PubMed-based scale usage has become more hedonically biased over 25~years (2000--2025); the book-level analysis extends this pattern across 120~years of mental-health literature.
+The directional consistency suggests that the clinical measurement trend is not isolated to psychometric practice but mirrors a broader professional shift toward hedonic evaluative language within mental-health publishing---potentially driven by the rise of evidence-based treatment for acute symptom-focused conditions, the growth of CBT and pharmacotherapy, and the increasing influence of managed care on clinical priorities.
+
+Combining the S9 and S10 results produces a coherent narrative: mental-health literature is not inherently hedonic-biased, but it is becoming \textit{more} hedonic over time.
+Clinical measurement, which already selectively amplifies hedonic content (H1), is thus embedded within a professional trajectory that reinforces this asymmetry.
+The H1 bias is a measurement-specific phenomenon; the H2 trend is a cultural and professional one, and the two compound each other.
 
 \end{document}

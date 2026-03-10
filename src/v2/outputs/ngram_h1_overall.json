@@ -1,0 +1,10 @@
+{
+  "mean_delta": -0.010037374886844693,
+  "cohen_d": -0.28606066360875043,
+  "mean_delta_weighted": -0.013394899839470628,
+  "cohen_d_weighted": -0.4533107017283473,
+  "wilcoxon_p": 1.0,
+  "ttest_p": 0.0,
+  "n_observations": 55710,
+  "n_words": 9285
+}
