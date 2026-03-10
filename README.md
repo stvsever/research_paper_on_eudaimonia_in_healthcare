@@ -94,7 +94,7 @@ research_paper_on_eudaimonia_in_healthcare/
     │   ├── outputs/
     │   └── figures/
     │
-    └── v2/                          # ✅ Main codebase (8-step pipeline)
+    └── v2/                          # ✅ Main codebase (13-step pipeline)
         ├── run_pipeline.py          # Entry point
         ├── data/
         │   ├── dimensions/          # Hedonic & eudaimonic dimension texts
@@ -108,7 +108,15 @@ research_paper_on_eudaimonia_in_healthcare/
         │   ├── analyze_posthoc.py   # Post-hoc analyses
         │   ├── visualize_h1.py      # H1 figures
         │   ├── visualize_h2.py      # H2 figures
-        │   └── visualize_domains.py # Domain-level figures
+        │   ├── visualize_domains.py # Domain-level figures
+        │   ├── fetch_ngrams.py      # Google Books Ngram data (1900–2019)
+        │   ├── embed_ngrams.py      # Ngram word embeddings
+        │   ├── analyze_ngrams_h1.py # Book-corpus H1 replication
+        │   ├── analyze_ngrams_h2.py # Book-corpus H2 replication
+        │   ├── visualize_ngrams.py  # Ngram supplementary figures
+        │   ├── filter_clinical.py   # Mental-health vocabulary filter
+        │   ├── fetch_mh_books.py    # Internet Archive book metadata
+        │   └── fetch_mh_books_recent.py # Recent book fetching
         ├── outputs/                 # Generated CSVs, JSONs
         ├── figures/                 # Generated PDFs & PNGs
         └── paper/
@@ -185,18 +193,23 @@ python src/v2/run_pipeline.py
 docker compose -f docker/docker-compose.yml up --build
 ```
 
-The v2 pipeline executes 8 steps in sequence:
+The v2 pipeline executes 13 steps in sequence:
 
 | Step | Description |
 |------|-------------|
-| 1/8 | Fetch PubMed usage counts for 200+ scales (2000–2025) |
-| 2/8 | Generate embeddings (OpenAI `text-embedding-3-large`) |
-| 3/8 | H1 analysis: 4 sub-analyses (top-N raw/weighted, all raw/weighted) |
-| 4/8 | H2 analysis: per-dimension temporal trend |
-| 5/8 | Post-hoc: domains, permutation, sensitivity, scatter |
-| 6/8 | H1 visualisation (violin plots + effect sizes) |
-| 7/8 | H2 visualisation (temporal dimension trends) |
-| 8/8 | Post-hoc visualisation (domains, permutation, sensitivity) |
+| 1/13 | Fetch PubMed usage counts for 200+ scales (2000–2025) |
+| 2/13 | Generate embeddings (OpenAI `text-embedding-3-large`) |
+| 3/13 | H1 analysis: 4 sub-analyses (top-N raw/weighted, all raw/weighted) |
+| 4/13 | H2 analysis: per-dimension temporal trend |
+| 5/13 | Post-hoc: domains, permutation, sensitivity, scatter |
+| 6/13 | H1 visualisation (violin plots + effect sizes) |
+| 7/13 | H2 visualisation (temporal dimension trends) |
+| 8/13 | Post-hoc visualisation (domains, permutation, sensitivity) |
+| 9/13 | Fetch Google Books Ngram v3 data (ADJ/VERB, 1900–2019) |
+| 10/13 | Embed top-10K ngram words (`text-embedding-3-large`) |
+| 11/13 | Ngram H1 replication (usage-weighted book-corpus analysis) |
+| 12/13 | Ngram H2 replication (temporal trend, 1900–2019) |
+| 13/13 | Ngram visualisation (supplementary figures) |
 
 ### Run the v1 pipeline (initial prototype)
 
@@ -230,7 +243,19 @@ python src/v1/run_pipeline.py
         ┌──────────────────────────────────────────┐
         │          Figures & Statistics             │
         │     (PDFs, PNGs, CSVs, JSONs)            │
-        └──────────────────────────────────────────┘
+        └──────────────────┬───────────────────────┘
+                           ▼
+┌──────────────────────────────────────────────────────────────────┐
+│            Supplementary Book-Corpus Replication                │
+│   Google Books Ngram (1900–2019) + Internet Archive metadata    │
+└───────────────────────────┬──────────────────────────────────────┘
+                            ▼
+              ┌─────────────┼─────────────┐
+              ▼             ▼             ▼
+        ┌──────────┐  ┌──────────┐  ┌──────────────┐
+        │ Ngram H1 │  │ Ngram H2 │  │    Ngram     │
+        │  Replic. │  │  Replic. │  │   Figures    │
+        └──────────┘  └──────────┘  └──────────────┘
 ```
 
 ---
@@ -249,6 +274,8 @@ All generated figures are saved to `src/v2/figures/` in both PDF and PNG formats
 | `posthoc_permutation.png` | Permutation test null distribution |
 | `posthoc_sensitivity_n.png` | Sensitivity to corpus size (top-N) |
 | `posthoc_domain_combined.png` | Domain-level analysis |
+| `ngram_h1_violin.png` | Book-corpus H1 replication (supplementary) |
+| `ngram_h2_combined.png` | Book-corpus H2 temporal trend (supplementary) |
 
 ---
 

@@ -10,4 +10,5 @@ services:
     volumes:
       - ../src/v2/outputs:/app/src/v2/outputs
       - ../src/v2/figures:/app/src/v2/figures
+      - ../src/v1/outputs:/app/src/v1/outputs
     command: ["python", "src/v2/run_pipeline.py"]
